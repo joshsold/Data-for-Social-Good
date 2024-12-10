@@ -1,10 +1,19 @@
+/**
+ * The UserStory class processes economic data for U.S. states, including tax percentages, 
+ * dollar value, average rent, and mean wages. It retrieves data from the provided txt files.
+ */
 public class UserStory {
-    double[] taxData;
-    String[] stateData;
-    double[] dollarData;
-    int[] rentData;
-    int[] wageData;
 
+    // Arrays to store various economic data
+    double[] taxData;      // Tax percentages for each state
+    String[] stateData;    // State names
+    double[] dollarData;   // Value of a dollar in each state
+    int[] rentData;        // Average rent costs
+    int[] wageData;        // Mean wages
+
+    /**
+     * Constructor that initializes the UserStory object by reading data from files.
+     */
     public UserStory(String taxFile, String stateFile, String dollarFile, String rentFile, String wageFile) {
         taxData = FileReader.toDoubleArray(taxFile);
         stateData = FileReader.toStringArray(stateFile);
@@ -13,6 +22,9 @@ public class UserStory {
         wageData = FileReader.toIntArray(wageFile);
     }
 
+    /**
+     * Retrieves and formats relevant financial data for a specified state.
+     */
     public String toString(String target) {
         for (int i = 0; i < stateData.length; i++) {
             if (stateData[i].equals(target)) {
